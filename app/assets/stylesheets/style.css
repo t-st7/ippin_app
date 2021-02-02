@@ -95,6 +95,11 @@ a {
   margin: 10px 0;
 }
 
+.cooking_time__select{
+  height: 30px;
+  width: 150px;
+}
+
 .actions{
   margin-bottom: 40px;
 }
