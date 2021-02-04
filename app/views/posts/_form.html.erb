@@ -1,4 +1,4 @@
-<%= form_with model: post, local: true do |f|%>
+<%= form_with(model: post, local: true) do |f|%>
   <div class="field">
     <%= f.label :title, "IPPINの名称" %><br />
     <%= f.text_field :title %>
@@ -12,8 +12,14 @@
   </div>
 
   <div class="form-goods">
-    <%= f.label :description, "私のひと工夫" %><br />
-    <%= f.text_area :description, class: :form__text %>
+    <%= f.fields_for :ingredients do |g| %>
+      <% render "ingredients_form", f: g %>
+      <%#<%= g.text_field :topping, {placeholder: "具材"} %>
+      <%#<%= g.text_field :gram, {placeholder: "分量"} %>
+    <% end %>
+  </div>
+  <div class="links">
+    <%= link_to_add_association "材料を追加", f, :ingredients, partial: "ingredients_form", class: "btn btn-primary btn-add" %>
   </div>
 
   <div class="cooking-time">

@@ -59,3 +59,7 @@ gem 'image_processing', '~> 1.2'
 
 gem 'active_hash'
 gem 'pry-rails'
+
+gem 'jquery-rails'
+gem 'nested_form'
+gem 'cocoon'
