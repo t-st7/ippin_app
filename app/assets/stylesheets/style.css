@@ -85,6 +85,7 @@ a {
 /* フォーム周り */
 .form__wrapper{
   min-height: calc(100vh - 161px);
+  display: block;
 }
 
 .form__text {
@@ -93,6 +94,25 @@ a {
 
 .field{
   margin: 10px 0;
+}
+
+.main-photo{
+  float: left;
+  width: 380px;
+  margin-right: 10px;
+}
+.main-photo-inner{
+  
+}
+
+.form-goods{
+  float: left;
+  width: 380px;
+  margin-right: 10px;
+}
+
+.cooking-time{
+  clear: both;
 }
 
 .cooking_time__select{

@@ -4,19 +4,21 @@
     <%= f.text_field :title %>
   </div>
 
-  <div class="field">
+  <div class="main-photo">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+    <div id="image-list"></div>
+    <%= image_tag @post.image, id: 'image' if @post.image.present? %> 
+  </div>
+
+  <div class="form-goods">
     <%= f.label :description, "私のひと工夫" %><br />
     <%= f.text_area :description, class: :form__text %>
   </div>
 
-  <div class="field">
+  <div class="cooking-time">
     <%= f.label :cooking_time_id, "調理時間" %><br />
     <%= f.collection_select(:cooking_time_id, CookingTime.all, :id, :name,{},class:"cooking_time__select") %>
-  </div>
-
-  <div class="field">
-    <%= f.label :image, "プロトタイプの画像" %><br />
-    <%= f.file_field :image %>
   </div>
 
   <div class="actions">
