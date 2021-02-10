@@ -13,4 +13,11 @@ class Post < ApplicationRecord
   end
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :cooking_time
+
+  def save
+    post = Post.create(title: title, description: description, image: image, cooking_time_id: cooking_time_id, user_id: user_id)
+    Ingredient.create(topping: topping, gram: gram, post_id: post.id)
+  end
+
+ 
 end

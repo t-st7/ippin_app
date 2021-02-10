@@ -7,4 +7,5 @@ class User < ApplicationRecord
       validates :nickname, presence: :true
       has_many :posts
       has_many :comments
+      has_one_attached :image
 end

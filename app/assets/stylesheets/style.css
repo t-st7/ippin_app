@@ -37,7 +37,7 @@ a {
 /* ヘッダー */
 
 .header {
-  background-color: #f1f8fe;
+  background-color: #f7ca7d;
   margin-bottom: 48px;
   padding: 20px 0;
 
@@ -58,10 +58,10 @@ a {
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #4c4f50;
   text-decoration: none;
   user-select: none;
-  border: 1px #87CEFA solid;
+  border: 1px #454748 solid;
   border-radius: 3px;
   transition: 0.4s ease;
 }
@@ -106,7 +106,7 @@ a {
 }
 
 .form-goods{
-  float: left;
+  float: right;
   width: 380px;
   margin-right: 10px;
 }
@@ -142,6 +142,11 @@ a {
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
   cursor: pointer;
 }
+
+.input-group {
+  width: 200px;
+}
+
 
 /* メイン */
 
@@ -187,7 +192,7 @@ a {
 }
 
 /* 詳細ページ */
-.prototype__wrapper{
+.post__wrapper{
   min-height: calc(100vh - 161px);
 }
 .prototype__hedding{
@@ -222,8 +227,8 @@ a {
   justify-content: center;
   padding-top: 16px;
 }
-.prototype__btn{
-  display: block;
+.post__btn{
+
   padding: 0.4em 1.6em;
   font-size: 0.4em;
   color: #999;
@@ -234,30 +239,84 @@ a {
   transition: 0.4s ease;
   margin: 0 4px;
 }
-.prototype__btn:hover{
+.post__btn:hover{
   color: #fff;
   background: #999;
 }
 
-.prototype__comments{
+.post__comments{
   background-color: #f6f6f6;
   padding: 20px;
   margin: 28px 0 40px 0;
 }
 
+.comment__form{
+  display: inline-block;
+}
+
+.comment__field__form{
+  display: flex;
+}
+
+.comment__form__form{
+  border-right:none;
+  border-left:none;
+  border-top:none;
+  outline: 0;
+  padding-bottom: 0.5em;
+}
+
+.comment__form__form:focus{
+  width:43em;
+  }
+
 .comments_lists{
   padding-left: 20px;
+  margin-bottom: 100px;
 }
 
 .comments_list{
+  display: flex;
   list-style-type: square;
   padding-bottom: 5px;
+}
+
+.post__manage{
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
 }
 
 .comment_user{
   font-size: 16px;
   color: #999;
   text-decoration: underline;
+}
+
+.comment-my-image{
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  object-fit: cover; 
+
+}
+
+.comment__btn{
+  height: 22px;
+  padding: 0.4em 1.6em;
+  font-size: 0.4em;
+  color: #999;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #999 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  margin: 0 4px;
+}
+
+.comment__btn:hover{
+  color: #fff;
+  background: #999;
 }
 
 /* ユーザーページ */
@@ -290,6 +349,13 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+
+.my-image {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  object-fit: cover; 
 }
 /* フッター */
 
