@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
+  before_action :search_product
 
 
   def index
@@ -47,20 +48,21 @@ class PostsController < ApplicationController
   end
 
   def search
-    if params[:keyword].present?
-      @posts = Post.where('title LIKE(?)', "%#{params[:keyword]}%")
-      return
-    
-
-    ##@posts = Post.left_joins(:ingredients).where('posts.*,ingredient.topping LIKE(?)', "%#{params[:keyword]}%")
+    if params[:q].present?
+      @results = @search.result(distinct: true)
     else
-      @posts = Post.includes(:user).order(created_at: :DESC)
-      redirect_to action: :index
+      redirect_to root_path
     end
   end
 
   private
+
+  def search_product
+    @search = Post.ransack(params[:q])  # 検索オブジェクトを生成
+  end
+
   def post_params
     params.require(:post).permit(:title, :description, :image, :cooking_time_id, ingredients_attributes: [:topping, :gram, :_destroy]). merge(user_id: current_user.id)
   end
+
 end

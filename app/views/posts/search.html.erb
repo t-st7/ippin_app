@@ -1,7 +1,19 @@
 <main class="main">
   <div class="inner">
     <div class="card__wrapper">
-      <%= render partial: 'post', collection: @posts %>
+      <div class="card">
+          <% @results.each do |post|%>
+            <%= link_to image_tag(post.image, class: :card__img ), post_path(post.id)%>
+            <div class="card__body">
+              <%= link_to post.title, post_path(post.id), class: :card__title%>
+              <p class="card__summary">
+                <%= "キャッチコピー" %>
+              </p>
+              <%= link_to post.cooking_time.name, post_path(post.id), class: :card__user %>
+            </div>
+          <% end %>
+
+      </div>
     </div>
   </div>
 </main>
