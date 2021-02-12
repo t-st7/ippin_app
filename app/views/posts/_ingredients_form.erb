@@ -1,0 +1,9 @@
+<div class="nested-fields" >
+  <div class="form-group" >
+    <%= f.text_field :topping, {placeholder: "具材"} %>
+  </div>
+  <div class="form-group" >
+    <%= f.text_field :gram, {placeholder: "分量"} %>
+    <%= link_to_remove_association "削除",f, class: "btn btn-danger btn-remove" %>
+  </div>
+</div>

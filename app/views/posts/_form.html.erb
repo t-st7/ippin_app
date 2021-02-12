@@ -1,25 +1,47 @@
-<%= form_with model: post, local: true do |f|%>
+<%= form_with(model: post, local: true) do |f|%>
+<% if post.errors.any? %>
+      <div id="errors">
+        <p><%= post.errors.count %> Prevented this application from saving</p>
+        <ul>
+          <% post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   <div class="field">
     <%= f.label :title, "IPPINの名称" %><br />
     <%= f.text_field :title %>
   </div>
 
-  <div class="field">
-    <%= f.label :description, "私のひと工夫" %><br />
-    <%= f.text_area :description, class: :form__text %>
+  <div class="main-photo">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+    <div id="image-list"></div>
+    <%= image_tag @post.image, id: 'image' if @post.image.present? %> 
   </div>
 
-  <div class="field">
+  <div class="form-goods">
+    <%= f.fields_for :ingredients do |g| %>
+      <% render "ingredients_form", f: g %>
+    <% end %>
+
+    <div class="links">
+     <%= link_to_add_association "材料を追加", f, :ingredients, partial: "ingredients_form", class: "btn btn-primary btn-add" %>
+     </div>
+  </div>
+
+  <div class="cooking-time">
     <%= f.label :cooking_time_id, "調理時間" %><br />
     <%= f.collection_select(:cooking_time_id, CookingTime.all, :id, :name,{},class:"cooking_time__select") %>
   </div>
 
-  <div class="field">
-    <%= f.label :image, "プロトタイプの画像" %><br />
-    <%= f.file_field :image %>
+   <div class="field">
+    <%= f.label :description, "説明" %><br />
+    <%= f.text_field :description %>
   </div>
 
   <div class="actions">
-    <%= f.submit "保存する", class: :form__btn  %>
+    <%= f.submit "保存する", data: {confirm: 'これで保存しますか？'},class: :form__btn  %>
   </div>
 <% end %>

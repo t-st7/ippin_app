@@ -1,11 +1,15 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
+  before_action :search_product
+
+
   def index
     @posts = Post.includes(:user).order(created_at: :DESC)
   end
 
   def new
     @post = Post.new
+    @ingredients = @post.ingredients.build
   end
 
   def create
@@ -14,12 +18,14 @@ class PostsController < ApplicationController
       @post.save
       redirect_to root_path
     else
-      render :new
+      render action: :new
     end
   end
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user)
   end
 
   def edit
@@ -41,9 +47,22 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
-  private
-  def post_params
-    params.require(:post).permit(:title, :description, :image, :cooking_time_id).
-                                                 merge(user_id: current_user.id)
+  def search
+    if params[:q].present?
+      @results = @search.result(distinct: true)
+    else
+      redirect_to root_path
+    end
   end
+
+  private
+
+  def search_product
+    @search = Post.ransack(params[:q])  # 検索オブジェクトを生成
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :description, :image, :cooking_time_id, ingredients_attributes: [:topping, :gram, :_destroy]). merge(user_id: current_user.id)
+  end
+
 end
