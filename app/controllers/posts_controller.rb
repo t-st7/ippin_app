@@ -48,17 +48,18 @@ class PostsController < ApplicationController
   end
 
   def search
-    if params[:q].present?
-      @results = @search.result(distinct: true)
-    else
-      redirect_to root_path
-    end
+    return nil if @search == ""
+      @results = @search.result.includes(:ingredients)
   end
 
   private
 
   def search_product
     @search = Post.ransack(params[:q])  # 検索オブジェクトを生成
+  end
+
+  def search_params
+    params.require(:q).permit(:title_cont, :ingredients_topping_cont)
   end
 
   def post_params
