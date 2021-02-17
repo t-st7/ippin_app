@@ -50,6 +50,7 @@ class PostsController < ApplicationController
   def search
     return nil if @search == ""
       @results = @search.result.includes(:ingredients)
+ 
   end
 
   private

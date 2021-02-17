@@ -3,7 +3,10 @@ if (location.pathname.match("/")){
     const inputElement = document.getElementById("search-form");
     inputElement.addEventListener("keyup", () =>{
       const keyword = document.getElementById("search-form").value;
-      console.log(keyword);
+      const XHR = new XMLHttpRequest();
+      XHR.open("GET", `search/@q_search`,true)
+      XHR.responseType = "json";
+      XHR.send();
     });
   });
 };
