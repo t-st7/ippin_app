@@ -1,24 +1,49 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# テーブル設計
 
-* Ruby version
+## users テーブル
+| Column             | Type   | Options      |
+| ------------------ | ------ | ------------ |
+| nickname           | string | null: false  |
+| email              | string | null: false  |
 
-* System dependencies
+### Association
+- has_many :posts
+- has_many :comments
 
-* Configuration
 
-* Database creation
+## posts テーブル
+| Column             | Type    | Options      |
+| ------------------ | ------- | ------------ |
+| title              | string  | null: false  |
+| description        | text    | null: false  |
+| cooking_time_id    | integer | null: false  |
+| user               | references | null: false, foreign_key: true  |
 
-* Database initialization
+### Association
+- has_many :users
+- has_many :ingredients
+- has_many :comments
 
-* How to run the test suite
+## ingredients テーブル
+| Column             | Type    | Options      |
+| ------------------ | ------- | ------------ |
+| topping            | string  | null: false  |
+| gram               | string  | null: false  |
+| post               | references | null: false, foreign_key: true  |
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+- belongs_to :post
 
-* Deployment instructions
 
-* ...
+## comments テーブル
+| Column             | Type    | Options      |
+| ------------------ | ------- | ------------ |
+| text               | text    | null: false  |
+| user               | references | null: false, foreign_key: true  |
+| post              | references | null: false, foreign_key: true  |
+
+### Association
+- belongs_to :post
+- belongs_to :user
