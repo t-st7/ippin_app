@@ -1,5 +1,5 @@
 <%= form_with(model: post, local: true) do |f|%>
-<% if post.errors.any? %>
+  <% if post.errors.any? %>
       <div id="errors">
         <p><%= post.errors.count %> Prevented this application from saving</p>
         <ul>
