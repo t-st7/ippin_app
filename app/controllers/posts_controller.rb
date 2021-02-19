@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.valid?
+    if @post.valid? 
       @post.save
       redirect_to root_path
     else
@@ -55,16 +55,20 @@ class PostsController < ApplicationController
 
   private
 
+  def post_params
+    params.require(:post).permit(:title, :description, :image, :cooking_time_id, ingredients_attributes: [:topping, :gram, :_destroy]). merge(user_id: current_user.id)
+  end
+
   def search_product
     @search = Post.ransack(params[:q])  # 検索オブジェクトを生成
   end
+
+  
 
   def search_params
     params.require(:q).permit(:title_cont, :ingredients_topping_cont)
   end
 
-  def post_params
-    params.require(:post).permit(:title, :description, :image, :cooking_time_id, ingredients_attributes: [:topping, :gram, :_destroy]). merge(user_id: current_user.id)
-  end
+  
 
 end
