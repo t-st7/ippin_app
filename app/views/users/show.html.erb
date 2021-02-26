@@ -1,6 +1,5 @@
-
-<h2>マイページ</h2>
 <div class="contaire">
+  <h2><%= @user.nickname%> のマイページ</h2>
   <% if @image.attached? %>
     <%= image_tag %>
   <% else %>

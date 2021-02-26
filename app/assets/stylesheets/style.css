@@ -43,7 +43,7 @@ a {
 
 }
 .inner {
-  width: 1024px;
+  width: 1170px;
   margin: 0 auto;
 }
 .nav {
@@ -411,4 +411,13 @@ a {
   .table{
     width: 100%;
   }
+}
+
+.contaire{
+  margin: 15px;
+}
+
+.search-form{
+  display: flex;
+  margin: auto;
 }
