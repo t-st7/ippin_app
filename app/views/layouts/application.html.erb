@@ -25,6 +25,8 @@
           <%# 検索フォーム %>
             <%= search_form_for @search, url: search_posts_path, class: "search-form" do |f| %>
               <%= f.search_field :title_or_ingredients_topping_cont, id:'search-form',placeholder: "投稿名か具材で検索", class: "search-input" %>
+              <div id="search-result">
+              </div>
               <%= f.submit "検索", class: "search-btn" %>
             <% end %>
           <%# //検索フォーム// %>
