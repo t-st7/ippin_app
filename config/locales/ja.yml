@@ -1,0 +1,10 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+     post:
+      title: IPPINの名称
+      description: 説明欄
+      image: 画像
+      cooking_time_id: 調理時間
