@@ -1,9 +1,10 @@
 <div class="contaire">
   <h2><%= @user.nickname%> のマイページ</h2>
   <% if @image.attached? %>
-    <%= image_tag %>
+    <%= image_tag @image %>
   <% else %>
     <%= image_tag("sample_defalt.png", class:"my-image") %>
+    <%= link_to "アカウント情報を変更", edit_user_registration_path, class: :post__btn %>
   <% end %>
 </div>
 <div class="contaire">
