@@ -82,7 +82,7 @@
             <% @comments.each do |comment| %>
               <li class="comments_list">
                 <% if comment.user.image.attached? %>
-                  <%= image_tag %>
+                  <%= image_tag(comment.user.image, class:"comment-my-image") %>
                 <% else %>
                   <%= image_tag("sample_defalt.png", class:"comment-my-image") %>
                 <% end %>
