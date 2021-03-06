@@ -2,6 +2,7 @@
   <div class="inner">
     <div class="card__wrapper">
       <div class="card">
+      <%# 検索結果があった場合 %>
         <% if @results.length != 0 %>
           <% @results.each do |post|%>
             <%= link_to image_tag(post.image, class: :card__img ), post_path(post.id)%>
@@ -13,10 +14,13 @@
               <%= link_to post.cooking_time.name, post_path(post.id), class: :card__user %>
             </div>
           <% end %>
+        <%# // 検索結果があった場合 // %>
+        <%# なかった場合 %>
         <% else %>
             <h3>検索した一品はございません。</h3>
             <%=link_to 'トップページへ戻る', root_path %>
         <% end %>
+        <%# // なかった場合 //%>
       </div>
     </div>
   </div>

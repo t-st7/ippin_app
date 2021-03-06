@@ -5,13 +5,18 @@
       <p class="prototype__hedding">
         <%= @post.title %>
       </p>
+      
       <%= link_to @post.user.nickname, user_path(@post.user), class: :prototype__user %>
+      <%# 投稿者のみ、編集,削除ボタンを表示する %>
       <% if user_signed_in? && current_user.id == @post.user_id %>
         <div class="prototype__manage">
           <%= link_to "編集する", edit_post_path(@post.id), class: :post__btn %>
           <%= link_to "削除する", post_path(@post.id), data: {confirm: '本当に削除しますか？'}, method: :delete, class: :post__btn %>
         </div>
       <% end %>
+      <%# // 投稿者のみ、編集,削除ボタンを表示する // %>
+
+      <%# 具材が登録している場合、表示される %>
       <% if @post.ingredients.present? %>
         <div class="container">
           <div class="row">
@@ -22,12 +27,12 @@
             </div>
             <div class="col-md-4">
               <table class="table">
-                 <thead>
+                <thead>
                   <tr>
                     <th>具</th>
                     <th>量</th>
                   </tr>
-                 </thead>
+                </thead>
                 <% @post.ingredients.each do |ingredient| %>
                   <tbody>
                     <tr>
@@ -40,11 +45,14 @@
             </div>
           </div>
         </div>
-        <% else %>
+        <%# // 具材が登録している場合、表示される // %>
+      <%# 投稿された写真 %>
+      <% else %>
         <div class="prototype__image">
           <%= image_tag @post.image %>
         </div>
       <% end %>
+      <%#  // 投稿された写真 // %>
       <div class="prototype__body">
         <div class="prototype__detail">
           <p class="detail__title">作り方のコツ</p>
@@ -53,16 +61,13 @@
           </p>
         </div>
       </div>
-      <div class="p__comments">
-        <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
 
+      <%#  ログインしているユーザーは以下のコメント投稿フォームを表示する %>
+      <div class="p__comments">
         <% if user_signed_in? %>
          <div class="comment__form">
             <%= form_with(model: [@post, @comment], local: true) do |f|%>
               <div class="field">
-                <div>
-              
-                </div>
                 <div class="comment__field__form">
                   <div>
                     <%= f.text_field :text, placeholder:"コメントを残す",class:"comment__form__form" %>
@@ -75,8 +80,9 @@
             <% end %>
           </div>
         <% end %> 
+        <%# // ログインしているユーザーには以下のコメント投稿フォームを表示する // %>
         
-        <%# コメント %>
+        <%# // コメント // %>
         <ul class="comments_lists">
           <% if @comments.present? %>
             <% @comments.each do |comment| %>
@@ -100,7 +106,7 @@
                   
                 </div>
               </li>
-              <% end %>
+            <% end %>
           <% end %>
         </ul>
         <%# // コメント // %>
