@@ -3,6 +3,7 @@ ja:
    attributes:
      user:
        nickname: ニックネーム
+       image: 画像
      post:
       title: IPPINの名称
       description: 説明欄
