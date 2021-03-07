@@ -66,3 +66,6 @@ gem 'cocoon'
 gem 'ransack'
 gem 'rails-i18n'
 gem 'gretel'
+
+gem 'rspec-rails', '~> 4.0.0'
+gem 'factory_bot_rails'
