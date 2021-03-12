@@ -174,7 +174,9 @@ a {
   background-color: white;
 }
 .card__img {
+  height: 230px;
   margin-bottom: 16px;
+  object-fit: contain;
 }
 .card__title {
   display: block;
