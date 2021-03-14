@@ -94,7 +94,7 @@
                 <% end %>
                 <div>
                   <div>
-                    <%= link_to comment.user.nickname, root_path, class: :comment_user %>
+                    <%= link_to comment.user.nickname, user_path(comment.user.id), class: :comment_user %>
                   </div>
                   
                     <%= comment.text %>
