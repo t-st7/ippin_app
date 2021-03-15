@@ -53,6 +53,7 @@
         </div>
       <% end %>
       <%#  // 投稿された写真 // %>
+      <%# 投稿の説明欄 %>
       <div class="prototype__body">
         <div class="prototype__detail">
           <p class="detail__title">作り方のコツ</p>
@@ -61,6 +62,7 @@
           </p>
         </div>
       </div>
+      <%# //投稿の説明欄// %>
 
       <%#  ログインしているユーザーは以下のコメント投稿フォームを表示する %>
       <div class="p__comments">
@@ -98,12 +100,13 @@
                   </div>
                   
                     <%= comment.text %>
+                    <%# コメントしたユーザー飲み削除可能 %>
                     <% if user_signed_in? && current_user.id == @post.user_id %>
                       <div class="post__manage">
                         <%= link_to "削除する", post_comment_path(@post, comment), data: {confirm: '本当にコメントを削除しますか？'}, method: :delete, class: :comment__btn %>
                       </div>
                     <% end %>
-                  
+                    <%# //コメントしたユーザー飲み削除可能// %>
                 </div>
               </li>
             <% end %>
