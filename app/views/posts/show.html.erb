@@ -25,6 +25,7 @@
                 <%= image_tag @post.image %>
               </div>
             </div>
+            <%# 具材の表示 %>
             <div class="col-md-4">
               <table class="table">
                 <thead>
@@ -33,6 +34,7 @@
                     <th>量</th>
                   </tr>
                 </thead>
+ 
                 <% @post.ingredients.each do |ingredient| %>
                   <tbody>
                     <tr>
@@ -43,6 +45,7 @@
                 <% end %>
               </table>
             </div>
+            <%# // 具材の表示 // %>
           </div>
         </div>
       <%# // 具材が登録している場合、表示される // %>

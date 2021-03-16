@@ -10,7 +10,8 @@
         </ul>
       </div>
     <% end %>
-    <%# // エラー文の表示 // %>
+  <%# // エラー文の表示 // %>
+  <%# ここからフォーム %>
   <div class="field">
     <%= f.label :title, "IPPINの名称" %><br />
     <%= f.text_field :title %>
@@ -47,3 +48,4 @@
     <%= f.submit "保存する", data: {confirm: 'これで保存しますか？'},class: :form__btn  %>
   </div>
 <% end %>
+  <%# //ここからフォーム// %>
