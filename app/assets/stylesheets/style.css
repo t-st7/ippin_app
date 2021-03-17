@@ -287,7 +287,7 @@ a {
 .comments_list{
   display: flex;
   list-style-type: square;
-  padding-bottom: 5px;
+  padding-bottom: 7px;
 }
 
 .post__manage{
