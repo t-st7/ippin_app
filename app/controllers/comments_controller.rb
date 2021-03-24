@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     else
       @comment = Comment.new
       @comments = @post.comments.includes(:user)
-      render "posts/show"
+      redirect_to post_path(@post)
     end
   end
 
