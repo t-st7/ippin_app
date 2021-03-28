@@ -35,7 +35,7 @@
             <div class="nav__right">
               <%= "THAK YOU!!" %>
               <%= link_to "#{current_user.nickname}", user_path(current_user.id), class: :nav__btn %>
-              <%= "さん" %>
+              <%= "" %>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
               <%= link_to "New ippin", new_post_path, class: :nav__btn %>
             </div>
