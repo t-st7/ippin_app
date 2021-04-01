@@ -175,7 +175,7 @@ a {
   
 }
 .card:hover{
-    filter: drop-shadow(0 10px 10px rgba(231, 165, 22, 0.9));
+  opacity: 0.5 ;
 }
 
 .card__img {
