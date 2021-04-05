@@ -2,14 +2,14 @@
 <main class="main">
   <div class="inner">
     <div class="post__wrapper">
-      <p class="prototype__hedding">
+      <p class="ippin__hedding">
         <%= @post.title %>
       </p>
       
-      <%= link_to @post.user.nickname, user_path(@post.user), class: :prototype__user %>
+      <%= link_to @post.user.nickname, user_path(@post.user), class: :ippin__user %>
       <%# 投稿者のみ、編集,削除ボタンを表示する %>
       <% if user_signed_in? && current_user.id == @post.user_id %>
-        <div class="prototype__manage">
+        <div class="__manage">
           <%= link_to "編集する", edit_post_path(@post.id), class: :post__btn %>
           <%= link_to "削除する", post_path(@post.id), data: {confirm: '本当に削除しますか？'}, method: :delete, class: :post__btn %>
         </div>
@@ -57,7 +57,7 @@
       <%#  // 投稿された写真 // %>
       <%# 投稿の説明欄 %>
       <div class="prototype__body">
-        <div class="prototype__detail">
+        <div class="ippin__detail">
           <p class="detail__title">作り方のコツ</p>
           <p class="detail__message">
             <%= @post.description %>

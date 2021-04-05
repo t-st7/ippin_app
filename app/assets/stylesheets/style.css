@@ -204,12 +204,12 @@ a {
 .post__wrapper{
   min-height: calc(100vh - 161px);
 }
-.prototype__hedding{
+.ippin__hedding{
   font-size: 24px;
   font-weight: bold;
   text-align: center;
 }
-.prototype__user{
+.ippin__user{
   display: block;
   font-size: 16px;
   color: #999;
@@ -221,7 +221,7 @@ a {
   margin: 0 auto;
   padding: 16px 0;
 }
-.prototype__detail{
+.ippin__detail{
   display: flex;
   align-items: center;
   flex-direction: column;
